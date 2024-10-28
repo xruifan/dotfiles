@@ -6,6 +6,7 @@ These are my personal dot files. The files are written by myself or gathered fro
   - `picom`: Compositor
   - `rofi`: App launcher (dmenu)
   - `kitty`: Terminal emulator
+  - `nvim`: Better Vim
   - `tmux`: Terminal multiplexer
 
 # How to use them?
