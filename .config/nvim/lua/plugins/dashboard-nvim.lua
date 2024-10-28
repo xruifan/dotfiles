@@ -1,0 +1,75 @@
+return { -- Startup dashboard
+  'nvimdev/dashboard-nvim',
+  event = 'VimEnter',
+  config = function()
+    require('dashboard').setup {
+      theme = 'doom',
+      preview = {
+        command = 'cat',
+        file_path = '$HOME/.config/nvim/bonsai-tree.ansi',
+        file_width = 40,
+        file_height = 14,
+      },
+      config = {
+        center = {
+          {
+            icon = '  ',
+            icon_hl = '@property',
+            desc = 'Lazy Update',
+            key_hl = 'DashboardHeader',
+            key_format = '   [%s]',
+            action = 'Lazy update',
+            key = 'u',
+          },
+          {
+            icon = '  ',
+            icon_hl = '@property',
+            desc = 'Mason Update',
+            key_hl = 'DashboardHeader',
+            key_format = '   [%s]',
+            action = 'MasonUpdate',
+            key = 'm',
+          },
+          {
+            icon = '  ',
+            icon_hl = 'DashboardShortCut',
+            desc = 'Recent Files',
+            key_hl = 'DashboardHeader',
+            key_format = '   [%s]',
+            action = 'Telescope oldfiles',
+            key = 'r',
+          },
+          {
+            icon = '󰱼  ',
+            icon_hl = '@function',
+            desc = 'Find Files',
+            key_hl = 'DashboardHeader',
+            key_format = '   [%s]',
+            action = 'Telescope find_files',
+            key = 'f',
+          },
+          {
+            icon = '  ',
+            icon_hl = '@function',
+            desc = 'Grep Words',
+            key_hl = 'DashboardHeader',
+            key_format = '   [%s]',
+            action = 'Telescope live_grep',
+            key = 'g',
+          },
+          {
+            icon = '  ',
+            icon_hl = 'DashboardFooter',
+            desc = 'Exit',
+            key_hl = 'DashboardHeader',
+            key_format = '   [%s]',
+            action = 'q',
+            key = 'e',
+          },
+        },
+        footer = { '' },
+      },
+    }
+  end,
+  dependencies = { { 'nvim-tree/nvim-web-devicons', 'nvim-telescope/telescope.nvim' } },
+}
