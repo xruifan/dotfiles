@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+#
+# Copyright 2024 Xuan-Rui Fan <serfinxx@gmail.com>
+#
+# Licensed under the terms of the GNU GPL v3, or any later version.
+#
+# This script is intended for use with i3blocks. It displays the current date.
+
+date '+%Y-%m-%d %a %H:%M:%S'

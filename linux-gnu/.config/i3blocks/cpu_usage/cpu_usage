@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+#
+# Copyright 2024 Xuan-Rui Fan <serfinxx@gmail.com>
+#
+# Licensed under the terms of the GNU GPL v3, or any later version.
+#
+# This script is intended for use with i3blocks. It parses the output of the "mpstat"
+# command (commonly available via a package of the same name) to read the CPU usage.
+#
+# The color changes based on the battery percentage: green for less than 60%, orange for more than 60%,
+# and red for more than 80%.
+#
+
+# Get CPU usage
+cpu_idle=$(mpstat 1 1 | awk '/all/ {print $12}' | tail -n 1)
+cpu_usage=$(echo "100 - $cpu_idle" | bc)
+
+echo "$cpu_usage%"
+echo
+
+if ( ($(echo "$cpu_usage >= 80" | bc -l))); then
+	echo \#FF0000
+elif ( ($(echo "$cpu_usage >= 60" | bc -l))); then
+	echo \#FFAE00
+else
+	echo \#00FF00
+fi

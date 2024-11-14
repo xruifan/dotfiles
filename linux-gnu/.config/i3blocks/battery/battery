@@ -1,0 +1,47 @@
+#!/usr/bin/env sh
+#
+# Copyright 2024 Xuan-Rui Fan <serfinxx@gmail.com>
+#
+# Licensed under the terms of the GNU GPL v3, or any later version.
+#
+# This script is intended for use with i3blocks. It parses the output of the "acpi"
+# command (commonly available via a package of the same name) to read the battery
+# status and percentage, and potentially the remaining time to full charge or discharge.
+#
+# The color changes based on the battery percentage: green for more than 75%, orange for more than 35%,
+# and red for 35% or less.
+#
+
+# Read acpi output
+acpi=$(acpi -b 2>/dev/null | grep "Battery $BAT_NUMBER" | head -n 1)
+
+# Fail on unexpected output
+if [ -z "$acpi" ]; then
+	# Don't print anything to stderr if there is no battery
+	exit 0
+fi
+
+status=$(echo $acpi | grep -oP '(?<=: )\w+')
+percent=$(echo $acpi | grep -oP '\d+(?=%)')
+
+full_text="$percent%"
+
+if [ "$status" = "Discharging" ]; then
+	full_text+=" 󰁹"
+elif [ "$status" = "Charging" ]; then
+	full_text+=" "
+else
+	full_text+=" "
+fi
+
+echo $full_text
+echo
+
+# Color
+if [ "$percent" -gt 75 ]; then
+	echo \#00FF00
+elif [ "$percent" -gt 35 ]; then
+	echo \#FFAE00
+else
+	echo \#FF0000
+fi

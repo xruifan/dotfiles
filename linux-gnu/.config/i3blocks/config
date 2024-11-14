@@ -1,0 +1,122 @@
+# Copyright 2024 Xuan-Rui Fan <serfinxx@gmail.com>
+#
+# Licensed under the terms of the GNU General Public License v3, or any later version.
+#
+# This is the configuration file for i3blocks. It is a collection of scripts that
+# are executed by i3blocks to display information on the status bar. Some scripts 
+# are from the i3blocks-contrib repository, and are modified by me to suit my needs.
+#
+# All modifications made to this file are also covered under the GPLv3 license.
+#
+
+command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+# ESSID
+[essid]
+label=  
+command=$SCRIPT_DIR/essid/essid
+interval=20
+#separator=false
+
+# Network interface monitoring
+[iface]
+label=󰌗 
+#IFACE=wlan0
+command=$SCRIPT_DIR/iface/iface
+color=#00FF00
+interval=20
+#separator=false
+
+# Memory usage
+[memory]
+command=$SCRIPT_DIR/memory/memory
+label=󰗮  
+#separator=false
+interval=10
+
+# CPU usage
+[cpu_usage]
+command=$SCRIPT_DIR/cpu_usage/cpu_usage
+label=  
+interval=10
+#min_width=CPU 100.00%
+T_WARN=50
+T_CRIT=80
+#separator=false
+
+[cpu_temp]
+label=  
+command=$SCRIPT_DIR/cpu_temp/cpu_temp
+interval=10
+
+# Battery indicator
+[battery]
+command=$SCRIPT_DIR/battery/battery
+label=  
+#label=⚡
+interval=15
+
+# Volume
+[volume-pulseaudio]
+command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio
+interval=once
+signal=1
+
+#[backlight]
+#command=$SCRIPT_DIR/backlight/backlight
+#label=☀
+#interval=20
+
+# Weather
+[weather]
+label=󰖕  
+command=$SCRIPT_DIR/weather/weather
+interval=3600
+
+# Date Time
+[time]
+label=  
+command=$SCRIPT_DIR/date/date
+interval=1
+
+# Key indicators
+# Add the following bindings to i3 config file:
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+[keyindicator]
+command=$SCRIPT_DIR/keyindicator/keyindicator
+KEY=CAPS
+TEXT_ON=󰘲
+TEXT_OFF=󰘲
+COLOR_ON=#00FF00
+COLOR_OFF=#444444
+#BG_COLOR_ON=
+#BG_COLOR_OFF=
+markup=pango
+interval=once
+signal=11
+HIDE_WHEN_OFF=0
+separator=false
+
+[keyindicator]
+command=$SCRIPT_DIR/keyindicator/keyindicator
+KEY=NUM
+TEXT_ON=󰎦
+TEXT_OFF=󰎦
+COLOR_ON=#00FF00
+COLOR_OFF=#444444
+#BG_COLOR_ON=
+#BG_COLOR_OFF=
+markup=pango
+interval=once
+signal=11
+HIDE_WHEN_OFF=0
+
+# User
+[user]
+command=$SCRIPT_DIR/user/user
+interval=once
+separator=false
+
