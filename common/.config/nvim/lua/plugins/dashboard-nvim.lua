@@ -58,6 +58,15 @@ return { -- Startup dashboard
             key = 'g',
           },
           {
+            icon = '  ',
+            icon_hl = '@function',
+            desc = 'Config',
+            key_hl = 'DashboardHeader',
+            key_format = '   [%s]',
+            action = 'Telescope find_files cwd=$HOME/.config/nvim',
+            key = 'c',
+          },
+          {
             icon = '  ',
             icon_hl = 'DashboardFooter',
             desc = 'Exit',
