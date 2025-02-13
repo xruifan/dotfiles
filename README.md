@@ -16,7 +16,7 @@ This repo contains my personal dot files. The files are written by myself or gat
 # How to use them?
 ## Fonts:
   - nerd-fonts
-  - Source Code Pro
+  - Fira Code
 
 ```sh
 git clone https://github.com/xruifan/dotfiles.git ~/dotfiles
