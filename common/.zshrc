@@ -43,7 +43,6 @@ ZSH_CUSTOM_AUTOUPDATE_NUM_WORKERS=5
 plugins=(zsh-syntax-highlighting zsh-autosuggestions autoupdate)
 
 export ZSH=$HOME/.oh-my-zsh
-export PATH=$PATH:/opt/homebrew/bin
 export PATH=$HOME/.local/bin:$ZSH:$PATH
 source $ZSH/oh-my-zsh.sh
 
