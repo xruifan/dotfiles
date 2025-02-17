@@ -4,30 +4,42 @@ return { -- Startup dashboard
   config = function()
     require('dashboard').setup {
       theme = 'doom',
-      preview = {
-        command = 'cat',
-        file_path = '$HOME/.config/nvim/bonsai-tree.ansi',
-        file_width = 40,
-        file_height = 14,
-      },
       config = {
+        header = {
+          '                              ',
+          '                              ',
+          '                              ',
+          '                              ',
+          '                              ',
+          '                              ',
+          '                              ',
+          '                              ',
+          '**    ☘︎__           ╱|、   ** ',
+          ' ** ૮˶•ﻌ•˶ა        (˚ˎ。7   **',
+          '** ◟/づ~づ~        |、˜〵  ** ',
+          ' ** し‾‾ل          じしˍ,)ノ**',
+          '                              ',
+          '                              ',
+          '                              ',
+          '                              ',
+        },
         center = {
           {
             icon = '  ',
             icon_hl = '@property',
-            desc = 'Lazy Update',
+            desc = 'Lazy',
             key_hl = 'DashboardHeader',
             key_format = '   [%s]',
-            action = 'Lazy update',
+            action = 'Lazy',
             key = 'u',
           },
           {
             icon = '  ',
             icon_hl = '@property',
-            desc = 'Mason Update',
+            desc = 'Mason',
             key_hl = 'DashboardHeader',
             key_format = '   [%s]',
-            action = 'MasonUpdate',
+            action = 'Mason',
             key = 'm',
           },
           {
@@ -76,7 +88,11 @@ return { -- Startup dashboard
             key = 'e',
           },
         },
-        footer = { '' },
+        footer = {
+          '                                    ',
+          '/ᐠ-˕-マ｡˚ᶻ𝗓           zᶻ  ૮˶-ﻌ-˶ა⌒)ᦱ',
+          '                                    ',
+        },
       },
     }
   end,
