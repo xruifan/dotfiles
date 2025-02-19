@@ -6,18 +6,22 @@ This repo contains my personal dot files. The files are written by myself or gat
   - kitty
   - tmux
   - nvim
+
 ### linux-gnu:
-  - i3wm
+#### hyprland:
+  - waybar
+#### i3:
   - picom
   - rofi
+
 ### darwin:
   - aerospace
 
-# How to use them?
 ## Fonts:
   - nerd-fonts
   - Fira Code
 
+# How to use them?
 ```sh
 git clone https://github.com/xruifan/dotfiles.git ~/dotfiles
 ~/dotfiles/stow_dotfiles.sh
