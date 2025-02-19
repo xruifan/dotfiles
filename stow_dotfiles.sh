@@ -12,7 +12,7 @@ cd "$(dirname "$0")"
 
 # Check the OS type
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	echo "Detected macOS"
+	echo "Detected darwin"
 	stow common darwin
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	echo "Detected GNU/Linux"
