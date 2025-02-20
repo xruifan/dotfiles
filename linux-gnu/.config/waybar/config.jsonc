@@ -70,8 +70,8 @@
 		"format": "{volume}% {icon} ",
 		"format-bluetooth": "{volume}% {icon} {format_source}",
 		"format-bluetooth-muted": " {icon} {format_source}",
-		"format-muted": "  {icon}",
-		"format-source": "{volume}% ",
+		"format-muted": "{volume}%  ",
+		"format-source": "{volume}%  ",
 		"format-source-muted": "",
 		"format-icons": {
 			"headphone": "",
@@ -86,7 +86,8 @@
 				""
 			]
 		},
-		"on-click": "pavucontrol"
+		"on-click": "pavucontrol",
+		"on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 	},
 	"tray": {
 		"icon-size": 15,
