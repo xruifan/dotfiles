@@ -45,14 +45,14 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 4px;
+    padding-top: 4px;
     border-top: 2px solid transparent;
+    color: Azure;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
     background-color: rgba(0,0,0,0.3);
-    color: Azure;
     border-top: 2px solid Azure;
 }
 
@@ -68,7 +68,7 @@ button:hover {
 #network,
 #pulseaudio,
 #tray {
-    padding: 0 6px;
+    padding: 0 4px;
 }
 
 #workspaces:first-child {
