@@ -45,7 +45,6 @@ button:hover {
 }
 
 #workspaces button {
-    padding-top: 4px;
     border-top: 2px solid transparent;
     color: Azure;
 }
@@ -69,14 +68,6 @@ button:hover {
 #pulseaudio,
 #tray {
     padding: 0 4px;
-}
-
-#workspaces:first-child {
-    margin-left: 0;
-}
-
-#workspaces:last-child {
-    margin-right: 0;
 }
 
 #clock {
