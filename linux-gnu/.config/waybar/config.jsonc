@@ -42,8 +42,8 @@
 		"format-alt": "{:%Y/%m/%d}"
 	},
 	"network": {
-		"format-wifi": "{essid} ({signalStrength}%)  ",
-		"format-ethernet": "{ifname}  ",
+		"format-wifi": "  {essid} ({signalStrength}%)",
+		"format-ethernet": "  {ifname}",
 		"format-disconnected": " ",
 		"max-length": 50,
 		"on-click": "kitty -e 'nmtui'"
@@ -71,11 +71,11 @@
 		]
 	},
 	"pulseaudio": {
-		"format": "{volume}% {icon} ",
-		"format-bluetooth": "{volume}% {icon} {format_source}",
-		"format-bluetooth-muted": " {icon} {format_source}",
-		"format-muted": "{volume}%  ",
-		"format-source": "{volume}%  ",
+		"format": "{icon}  {volume}%",
+		"format-bluetooth": "{icon}  {volume}% {format_source}",
+		"format-bluetooth-muted": "  {icon} {volume}% {format_source}",
+		"format-muted": "  {volume}%",
+		"format-source": " {volume}%",
 		"format-source-muted": "",
 		"format-icons": {
 			"headphone": "",
