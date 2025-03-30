@@ -17,7 +17,7 @@
 
 window#waybar {
     background: transparent;
-    color: #ffffff;
+    color: White;
     transition-duration: .5s;
 }
 
@@ -46,6 +46,7 @@ button:hover {
 
 #workspaces button {
     border-top: 2px solid transparent;
+    padding: 0 4px;
     color: Azure;
 }
 
@@ -75,48 +76,48 @@ button:hover {
     font-weight: bold;
 }
 
-#battery icon {
-    color: red;
-}
-
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
+    0% {
+        color: Crimson;
+    }
+    50% {
+        color: White;
+    }
+    100% {
+        color: Crimson;
     }
 }
 
-.blinking {
-    animation: blink 0.5s linear infinite alternate;
+#cpu.warning, #memory.warning {
+    color: DarkOrange;
+}
+
+#cpu.critical, #memory.critical {
+    animation: blink 1s steps(2) infinite;
+}
+
+#battery, #battery.charging, #battery.plugged {
+    color: LightGreen;
 }
 
 #battery.warning:not(.charging) {
-    background-color: DarkOrange;
-    color: #ffffff;
-    animation: blink 0.5s linear infinite alternate;
+    color: DarkOrange;
 }
 
 #battery.critical:not(.charging) {
-    background-color: Crimson;
-    color: #ffffff;
-    animation: blink 0.5s linear infinite alternate;
+    animation: blink 1s steps(2) infinite;
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: White;
 }
 
 #network.disconnected {
-    background-color: Crimson;
+    color: Red;
 }
 
 #temperature.critical {
-    background-color: Crimson;
+    color: Crimson;
 }
 
 #tray > .passive {
@@ -130,5 +131,10 @@ label:focus {
 
 #custom-power {
     padding: 0 4px;
+    transition-duration: .2s;
+}
+
+#custom-power:hover {
+    color: Crimson;
 }
 

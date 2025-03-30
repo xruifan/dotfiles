@@ -10,6 +10,8 @@ This repo contains my personal dot files. The files are written by myself or gat
 ### linux-gnu:
 #### hyprland:
   - waybar
+#### sway
+  - waybar
 #### i3:
   - picom
   - rofi
