@@ -21,7 +21,7 @@ This repo contains my personal dot files. The files are written by myself or gat
 
 ## Fonts:
   - nerd-fonts
-  - Fira Code
+  - otf-apple-fonts
 
 # How to use them?
 ```sh

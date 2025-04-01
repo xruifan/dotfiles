@@ -11,7 +11,7 @@
 set $mod Mod4
 
 # Font for window titles.
-font pango:Fira Code 11
+font pango:SF Mono 11
 
 # waybar
 exec waybar
