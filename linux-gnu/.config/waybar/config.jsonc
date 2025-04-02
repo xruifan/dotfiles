@@ -59,6 +59,7 @@
 		"format-wifi": "  {essid}",
 		"format-ethernet": "  {ifname}",
 		"format-disconnected": " ",
+		"interval": 10,
 		"max-length": 50,
 		"tooltip-format-wifi": "{signaldBm}dBm ({signalStrength}%)",
 		"on-click": "kitty -e 'nmtui'"
@@ -93,7 +94,8 @@
 			" ",
 			" ",
 			" "
-		]
+		],
+		"interval": 10
 	},
 	"temperature": {
 		"format": "  {temperatureC}°C",
