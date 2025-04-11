@@ -36,7 +36,7 @@ return { -- Startup dashboard
             key_hl = 'DashboardHeader',
             key_format = '   [%s]',
             action = 'Lazy',
-            key = 'u',
+            key = 'l',
           },
           {
             icon = '  ',
