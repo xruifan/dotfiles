@@ -40,7 +40,10 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 ZSH_THEME=''
 ZSH_CUSTOM_AUTOUPDATE_NUM_WORKERS=5
-plugins=(zsh-syntax-highlighting zsh-autosuggestions autoupdate)
+
+zstyle ':omz:plugins:nvm' lazy yes
+
+plugins=(zsh-syntax-highlighting zsh-autosuggestions autoupdate nvm)
 
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/.local/bin:$ZSH:$PATH
