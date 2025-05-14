@@ -10,9 +10,11 @@ return { -- Autoformat
       lua = { 'stylua' },
       -- Multiple formatters sequentially
       -- python = { "isort", "black" },
-      --
+      go = { 'gofmt', 'goimports' },
       -- Run until a formatter is found.
       -- javascript = { { "prettierd", "prettier" } },
+      -- Run only the first formatter
+      -- javascript = { "prettierd" },
     },
   },
 }
