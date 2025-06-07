@@ -62,6 +62,9 @@ DISABLE_AUTO_TITLE='true'
 HISTSIZE=5000
 SAVEHIST=5000
 
+# Keychain
+eval `keychain --quiet --eval ~/.ssh/github`
+
 # Define color variables
 typeset -A colors
 colors=(
