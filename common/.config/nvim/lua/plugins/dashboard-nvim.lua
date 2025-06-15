@@ -84,7 +84,7 @@ return { -- Startup dashboard
             key = 'c',
           },
           {
-            icon = '  ',
+            icon = '󰿅  ',
             icon_hl = 'DashboardFooter',
             desc = 'Exit',
             key_hl = 'DashboardHeader',
