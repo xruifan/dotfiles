@@ -43,7 +43,7 @@ ZSH_CUSTOM_AUTOUPDATE_NUM_WORKERS=5
 
 # Lazy load nvm
 zstyle ':omz:plugins:nvm' lazy yes
-zstyle ':omz:plugins:nvm' lazy-cmd npm node nvim vim
+zstyle ':omz:plugins:nvm' lazy-cmd npm node nvim vim tmux
 
 plugins=(zsh-syntax-highlighting zsh-autosuggestions autoupdate nvm)
 
