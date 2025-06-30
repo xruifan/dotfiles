@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+#
+# Copyright 2024 Xuan-Rui Fan <serfinxx@gmail.com>
+#
+# Licensed under the terms of the GNU GPL v3, or any later version.
+#
+# This script is intended for use with i3blocks. It displays the ESSID of the
+# wireless network the machine is connected to.
+#
+
+get_wireless_interface() {
+	for interface in /sys/class/net/*; do
+		if [ -d "$interface/wireless" ]; then
+			basename "$interface"
+			return 0
+		fi
+	done
+	exit 1
+}
+
+interface=$(get_wireless_interface) || exit 1
+
+# Short-circuit if interface is down
+[ "$(cat /sys/class/net/$interface/operstate 2>/dev/null)" = "up" ] || exit 1
+
+essid=$(iwgetid -r)
+
+[ -n "$essid" ] && echo "$essid"

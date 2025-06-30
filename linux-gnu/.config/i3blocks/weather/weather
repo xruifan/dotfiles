@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+#
+# Copyright 2024 Xuan-Rui Fan <serfinxx@gmail.com>
+#
+# Licensed under the terms of the GNU GPL v3, or any later version.
+#
+# This script is intended for use with i3blocks. It parses the weather output from wttr.in
+# to read the current weather and forecast. The output is then formatted to be displayed.
+#
+
+curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo

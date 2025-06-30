@@ -1,0 +1,146 @@
+/*
+ * Copyright 2025 Xuan-Rui Fan <serfinxx@gmail.com>
+ *
+ * Licensed under the terms of the GNU General Public License v3, or any later version.
+ *
+ * This is the configuration file for waybar.
+ * It contains all the keybindings and settings for waybar.
+ *
+ * All modifications made to this file are also covered under the GPLv3 license.
+ */
+{
+	"modules-left": [
+		/*
+		"hyprland/workspaces",
+		"hyprland/window"
+		*/
+		"sway/workspaces",
+		"sway/window"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"network",
+		"cpu",
+		"memory",
+		"temperature",
+		"battery",
+		"backlight",
+		"pulseaudio",
+		"tray",
+		"custom/power"
+	],
+	/*
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1"
+	},
+	"hyprland/window": {
+		"max-length": 50
+	},
+	*/
+	"sway/workspaces": {
+		"format": "{icon}",
+		"on-scroll-up": "swaymsg workspace next",
+		"on-scroll-down": "swaymsg workspace prev"
+	},
+	"sway/window": {
+		"max-length": 50
+	},
+	"clock": {
+		"format": "{:%H:%M:%S}",
+		"interval": 1,
+		"tooltip-format": "<tt><big>{calendar}</big></tt>",
+		"format-alt": "{:%Y/%m/%d}"
+	},
+	"network": {
+		"format-wifi": "  {essid}",
+		"format-ethernet": "  {ifname}",
+		"format-disconnected": " ",
+		"interval": 10,
+		"max-length": 50,
+		"tooltip-format-wifi": "{signaldBm}dBm ({signalStrength}%)",
+		"on-click": "kitty -e 'nmtui'"
+	},
+	"cpu": {
+		"states": {
+			"warning": 50,
+			"critical": 80
+		},
+		"format": "  {usage}%",
+		"interval": 10
+	},
+	"memory": {
+		"states": {
+			"warning": 50,
+			"critical": 80
+		},
+		"format": "󰗮 {percentage}%",
+		"interval": 10,
+		"tooltip-format": "{used:0.1f}/{total:0.1f} GiB"
+	},
+	"battery": {
+		"states": {
+			"warning": 50,
+			"critical": 20
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		],
+		"interval": 10
+	},
+	"temperature": {
+		"format": "  {temperatureC}°C",
+		"interval": 10,
+		"critical-threshold": 80,
+		"tooltip-format": "{temperatureF}°F, {temperatureK}°K"
+	},
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"󰃟 ",
+			"󰃠 "
+		]
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}% {format_source}",
+		"format-bluetooth-muted": "  {volume}% {format_source}",
+		"format-muted": "  {volume}%",
+		"format-source": " {volume}%",
+		"format-source-muted": " ",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"  ",
+				"  ",
+				"  "
+			]
+		},
+		"on-click": "pavucontrol",
+		"on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	},
+	"tray": {
+		"icon-size": 15,
+		"spacing": 10,
+		"show-passive-items": true
+	},
+	"custom/power": {
+		"format": " ",
+		"tooltip": false,
+		"on-click": "wlogout --protocol layer-shell"
+	}
+}

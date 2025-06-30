@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Author Xuan-Rui Fan
+#
+
+lslogins | grep $USER | awk '{print $2}'

@@ -1,0 +1,8 @@
+# Tmux plugins
+*/.config/tmux/plugins/
+
+# Nvim
+lazy-lock.json
+
+*.bak
+*.DS_Store

@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+#
+# Copyright 2024 Xuan-Rui Fan <serfinxx@gmail.com>
+#
+# Licensed under the terms of the GNU GPL v3, or any later version.
+#
+# This script is intended for use with i3blocks. It parses the output of the "sensor"
+# command (commonly available via a package of the same name) to read the CPU temperature
+# and potentially the remaining time to full charge or discharge.
+#
+# The color changes based on the CPU temperature: green for less than 60°C, orange for more than 60°C,
+# and red for more than 80°C.
+#
+
+# Detect CPU vendor
+cpu_vendor=$(lscpu | grep 'Vendor ID' | awk '{print $3}')
+
+if [ "$cpu_vendor" = "GenuineIntel" ]; then
+	# Intel CPU: Get temperature for 'Package id 0'
+	temp=$(sensors | awk '/^Package id 0/ {print $4}' | sed 's/+//;s/°C//')
+elif [ "$cpu_vendor" = "AuthenticAMD" ]; then
+	# AMD CPU: Get temperature for Tctl
+	temp=$(sensors | awk '/k10temp-pci-00c3/,/Tctl/ {if (/Tctl/) print $2}' | sed 's/+//;s/°C//')
+else
+	temp="N/A"
+fi
+
+echo "$temp °C"
+echo
+
+if [ "$temp" != "N/A" ]; then
+	if [ "$(echo "$temp >= 80" | bc -l)" -eq 1 ]; then
+		echo \#FF0000
+	elif [ "$(echo "$temp >= 60" | bc -l)" -eq 1 ]; then
+		echo \#FFAE00
+	else
+		echo \#00FF00
+	fi
+fi

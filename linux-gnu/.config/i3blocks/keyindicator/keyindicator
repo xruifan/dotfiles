@@ -1,0 +1,47 @@
+#!/usr/bin/env sh
+
+# Default values
+indicator="${BLOCK_INSTANCE:-${KEY:-CAPS}}"
+text_on="${TEXT_ON:-$indicator}"
+text_off="${TEXT_OFF:-$indicator}"
+color_on="${COLOR_ON:-#00FF00}"
+color_off="${COLOR_OFF:-#222222}"
+bg_color_on="${BG_COLOR_ON}"
+bg_color_off="${BG_COLOR_OFF}"
+hide="${HIDE_WHEN_OFF:-0}"
+
+# Key mapping
+declare -A indicators
+indicators=( ["CAPS"]=0x00000001 ["NUM"]=0x00000002 )
+
+# Retrieve key flags
+mask=$(xset -q | awk '/LED mask:/ {print $NF}')
+
+# Determine if indicator is on or off
+indicator_status=$(( ${indicators[$indicator]} & 0x$mask ))
+
+# Exit if --hide and indicator is off
+if [[ "$hide" == 1 && "$indicator_status" == 0 ]]; then
+    exit 0
+fi
+
+# Output
+if [[ "$indicator_status" != 0 ]]; then
+    indicator="$text_on"
+    fg_color="$color_on"
+    bg_color="$bg_color_on"
+else
+    indicator="$text_off"
+    fg_color="$color_off"
+    bg_color="$bg_color_off"
+fi
+
+# Print output with or without background color
+if [[ -n "$bg_color" ]]; then
+    echo "<span color='$fg_color' bgcolor='$bg_color'>$indicator</span>"
+else
+    echo "<span color='$fg_color'>$indicator</span>"
+fi
+
+exit 0
+

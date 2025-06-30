@@ -1,0 +1,46 @@
+/*
+ * Copyright 2025 Xuan-Rui Fan <serfinxx@gmail.com>
+ *
+ * Licensed under the terms of the GNU General Public License v3, or any later version.
+ *
+ * This is the configuration file for wofi.
+ * It contains all the keybindings and settings for wofi.
+ *
+ * All modifications made to this file are also covered under the GPLv3 license.
+ */
+
+window {
+    margin: 0px;
+    border: 1px solid Gray;
+    background: #1d1f21;
+    opacity: 0.9;
+}
+
+#input {
+    margin: 5px;
+    color: Azure;
+    background: #373b41;
+    opacity: 0.9;
+}
+
+#inner-box {
+    margin: 5px;
+}
+
+#outer-box {
+    margin: 5px;
+}
+
+#scroll {
+    margin: 0px;
+}
+
+#text {
+    margin: 5px;
+    color: Azure;
+}
+
+#entry:selected {
+    background: #373b41;
+    opacity: 0.9;
+}
