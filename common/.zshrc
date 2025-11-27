@@ -65,7 +65,7 @@ HISTSIZE=5000
 SAVEHIST=5000
 
 # Keychain
-eval `keychain --quiet --eval ~/.ssh/github`
+eval $(keychain --quiet --eval ~/.ssh/github)
 
 # Define color variables
 typeset -A colors
