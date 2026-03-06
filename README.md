@@ -3,18 +3,22 @@ This repo contains my personal dot files. The files are written by myself or gat
 
 # Included software configs in the dot files:
 ### Common:
+  - zsh
   - kitty
   - tmux
   - nvim
+  - opencode
 
 ### linux-gnu:
-#### hyprland:
+  - hypr
+  - sway
+  - i3
   - waybar
-#### sway
-  - waybar
-#### i3:
+  - i3blocks
   - picom
   - rofi
+  - wofi
+  - wlogout
 
 ### darwin:
   - aerospace
