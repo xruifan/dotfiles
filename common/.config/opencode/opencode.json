@@ -1,0 +1,7 @@
+{
+	"plugin": [
+		"oh-my-opencode@latest",
+		"opencode-websearch-cited@latest"
+	],
+	"$schema": "https://opencode.ai/config.json"
+}
