@@ -3,5 +3,15 @@
 		"oh-my-opencode@latest",
 		"opencode-websearch-cited@latest"
 	],
-	"$schema": "https://opencode.ai/config.json"
+	"$schema": "https://opencode.ai/config.json",
+	"mcp": {
+		"chrome-devtools": {
+			"type": "local",
+			"command": [
+				"npx",
+				"-y",
+				"chrome-devtools-mcp@latest"
+			]
+		}
+	}
 }
