@@ -41,9 +41,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 ZSH_THEME=''
 ZSH_CUSTOM_AUTOUPDATE_NUM_WORKERS=5
 
-# Lazy load nvm
-zstyle ':omz:plugins:nvm' lazy yes
-zstyle ':omz:plugins:nvm' lazy-cmd npm node nvim vim tmux
+# Load nvm on shell startup
+zstyle ':omz:plugins:nvm' lazy no
 
 plugins=(zsh-syntax-highlighting zsh-autosuggestions autoupdate nvm)
 
