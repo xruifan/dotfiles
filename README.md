@@ -6,6 +6,7 @@ This repo contains my personal dot files. The files are written by myself or gat
   - zsh
   - kitty
   - tmux
+  - tpm
   - nvim
   - opencode
 
@@ -33,3 +34,8 @@ git clone https://github.com/xruifan/dotfiles.git ~/dotfiles
 ~/dotfiles/stow_dotfiles.sh
 ```
 and reload your session.
+
+# Per-machine overrides
+`~/.zshenv.local` (all shells) and `~/.zshrc.local` (interactive only) are
+sourced when present and never tracked by git — put personal PATH entries or
+secrets there. See `~/.zshrc.local.example` (linked from the repo) for details.

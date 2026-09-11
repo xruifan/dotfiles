@@ -47,10 +47,8 @@ zstyle ':omz:plugins:nvm' lazy no
 plugins=(zsh-syntax-highlighting zsh-autosuggestions autoupdate nvm)
 
 export ZSH=$HOME/.oh-my-zsh
-# NOTE: full PATH (node24/npm-global/cargo/local-bin) lives in .zshenv so both
-# interactive and non-interactive shells get it. This line is only a fallback
-# for interactive shells in case .zshenv was skipped.
-export PATH="$HOME/.local/node24/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+# NOTE: shared PATH entries live in .zshenv (sourced for every shell, and
+# guarded by existence checks). Do not add machine-specific directories here.
 source $ZSH/oh-my-zsh.sh
 
 # If not running interactively, don't do anything
@@ -108,3 +106,7 @@ setopt prompt_subst
 
 # Define the prompt
 PROMPT='${VENV_PROMPT}${colors[line]}[${colors[date]}${timeicon}%D{%H:%M:%S}${colors[line]}]-[${colors[dir]}${foldericon}%~${colors[line]}]$(git_branch_name) ${colors[line]}❯%f '
+
+# Per-machine overrides (not tracked by git): copy .zshrc.local.example to
+# ~/.zshrc.local and put personal PATH entries or secrets there.
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

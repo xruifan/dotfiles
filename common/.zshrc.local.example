@@ -1,0 +1,9 @@
+# Per-machine overrides — copy to ~/ (untracked) and edit.
+#
+# ~/.zshenv.local  — sourced from .zshenv, applies to interactive AND
+#                    non-interactive shells (scripts, agents, cron).
+#                    Put PATH/env entries here, e.g.:
+#   [ -d "$HOME/.local/node24/bin" ] && PATH="$HOME/.local/node24/bin:$PATH"
+#
+# ~/.zshrc.local   — sourced at the end of .zshrc, interactive shells only.
+#                    Put aliases, prompt tweaks, interactive secrets here.

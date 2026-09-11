@@ -16,3 +16,15 @@
 
 export PATH=$PATH:/opt/homebrew/bin
 
+# Shared user bins, same set as linux-gnu. Only existing directories are
+# added, so this file is safe to share across machines with different
+# layouts. Machine-specific entries belong in ~/.zshrc.local, not here.
+typeset -U PATH path
+for d in "$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.npm-global/bin"; do
+  [ -d "$d" ] && PATH="$d:$PATH"
+done
+unset d
+
+# Per-machine env/PATH overrides (not tracked by git).
+[ -f "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
+
