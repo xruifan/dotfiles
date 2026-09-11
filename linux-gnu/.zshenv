@@ -17,3 +17,11 @@
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
+
+# Personal bins (mirrors old .bashrc): npm-global holds opencode/openclaw,
+# node24 holds node/npm, cargo holds rust toolchain.
+# .zshenv is sourced for both interactive and non-interactive shells,
+# so PATH here guarantees background agents/scripts also find these tools.
+# -U keeps PATH unique so repeated sourcing doesn't duplicate entries.
+typeset -U PATH path
+export PATH="$HOME/.local/node24/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"

@@ -47,7 +47,10 @@ zstyle ':omz:plugins:nvm' lazy no
 plugins=(zsh-syntax-highlighting zsh-autosuggestions autoupdate nvm)
 
 export ZSH=$HOME/.oh-my-zsh
-export PATH=$HOME/.local/bin:$ZSH:$PATH
+# NOTE: full PATH (node24/npm-global/cargo/local-bin) lives in .zshenv so both
+# interactive and non-interactive shells get it. This line is only a fallback
+# for interactive shells in case .zshenv was skipped.
+export PATH="$HOME/.local/node24/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # If not running interactively, don't do anything
