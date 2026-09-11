@@ -11,15 +11,20 @@
 cd "$(dirname "$0")"
 
 # Check the OS type
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	echo "Detected darwin"
-	stow common darwin
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	echo "Detected GNU/Linux"
-	stow common linux-gnu
-else
-	echo "Unsupported OS: $OSTYPE"
-	exit 1
-fi
+os=$(uname -s)
+case "$os" in
+	Darwin*)
+		echo "Detected darwin"
+		stow common darwin
+		;;
+	Linux*)
+		echo "Detected GNU/Linux"
+		stow common linux-gnu
+		;;
+	*)
+		echo "Unsupported OS: $os"
+		exit 1
+		;;
+esac
 
 echo "Dotfiles have been stowed successfully."
