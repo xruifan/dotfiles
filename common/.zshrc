@@ -90,7 +90,7 @@ git_branch_name() {
 
 # Determines prompt modifier for Python virtual environment
 precmd_venv_info() {
-  if [[ -n "$VIRTUAL_ENV" ]]; then
+  if [[ -n "${VIRTUAL_ENV:-}" ]]; then
     VENV_PROMPT="(${colors[venv]}$(basename "$VIRTUAL_ENV")${colors[line]})::"
   else
     VENV_PROMPT=""
