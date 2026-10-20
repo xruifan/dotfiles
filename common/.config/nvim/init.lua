@@ -17,20 +17,23 @@ vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
 --  See `:help 'clipboard'`
+-- Prefer the native clipboard provider (wl-copy/pbcopy/xclip). Only force
+-- OSC 52 when no provider is available, e.g. in a bare SSH session; always
+-- forcing it breaks large pastes and terminals without OSC 52 support.
 vim.opt.clipboard = 'unnamedplus'
-
--- force OSC 52 protocol for all operations
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy '+',
-    ['*'] = require('vim.ui.clipboard.osc52').copy '*',
-  },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste '+',
-    ['*'] = require('vim.ui.clipboard.osc52').paste '*',
-  },
-}
+if vim.fn['provider#clipboard#Executable']() == '' then
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+      ['*'] = require('vim.ui.clipboard.osc52').copy '*',
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+      ['*'] = require('vim.ui.clipboard.osc52').paste '*',
+    },
+  }
+end
 
 -- Enable break indent
 vim.opt.breakindent = true
