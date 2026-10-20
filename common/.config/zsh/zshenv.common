@@ -1,0 +1,20 @@
+# Shared environment for every zsh, on every platform.
+#
+# Sourced from the platform-specific ~/.zshenv (linux-gnu or darwin) after the
+# platform has set up its own PATH entries. Because .zshenv is read by *all*
+# zsh processes — interactive, scripts, agents, cron — keep this file silent,
+# free of external commands, and free of interactive-only configuration.
+
+# Shared user bins (npm-global holds npm-installed CLIs, cargo holds the rust
+# toolchain). Only existing directories are added, so this file is safe to
+# share across machines with different layouts. Machine-specific entries
+# (e.g. a pinned node version) belong in ~/.zshenv.local, not here.
+# -U keeps PATH unique so repeated sourcing doesn't duplicate entries.
+typeset -U PATH path
+for d in "$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.npm-global/bin"; do
+  [ -d "$d" ] && PATH="$d:$PATH"
+done
+unset d
+
+# Per-machine env/PATH overrides (not tracked by git).
+[ -f "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"

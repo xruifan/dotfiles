@@ -1,12 +1,9 @@
 # Copyright 2024 Xuan-Rui Fan <serfinxx@gmail.com>
 #
-# Licensed under the terms of the GNU General Public License v3, or any later version.
+# Licensed under the terms of the GNU GPL v3, or any later version.
 #
-# This is the configuration file for Zsh (Z Shell).
-# It contains custom settings, aliases, and functions to enhance the user experience.
-#
-# Feel free to modify this file according to your preferences, have fun.
-# All modifications made to this file are also covered under the GPLv3 license.
+# This is the platform-specific zsh environment file for macOS.
+# It is sourced by every zsh process, not just interactive shells.
 #
 # For more information on Zsh configuration and options, visit:
 # https://zsh.sourceforge.io/Doc/Release/
@@ -14,17 +11,14 @@
 # If you have any questions or feedback, feel free to reach out to me.
 #
 
-export PATH=$PATH:/opt/homebrew/bin
+# Homebrew must come first: /usr/bin/git and /usr/bin/python3 on macOS are
+# stubs that shadow the Homebrew versions when placed earlier in PATH.
+if [ -d /opt/homebrew/bin ]; then
+  PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+elif [ -d /usr/local/bin ]; then
+  # Intel Macs
+  PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+fi
 
-# Shared user bins, same set as linux-gnu. Only existing directories are
-# added, so this file is safe to share across machines with different
-# layouts. Machine-specific entries belong in ~/.zshrc.local, not here.
-typeset -U PATH path
-for d in "$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.npm-global/bin"; do
-  [ -d "$d" ] && PATH="$d:$PATH"
-done
-unset d
-
-# Per-machine env/PATH overrides (not tracked by git).
-[ -f "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
-
+# Shared PATH/env for every platform (see common/.config/zsh/zshenv.common).
+[ -f "$HOME/.config/zsh/zshenv.common" ] && source "$HOME/.config/zsh/zshenv.common"
