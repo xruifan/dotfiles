@@ -35,7 +35,7 @@
 #
 
 export VISUAL=nvim
-export EDITOR='$VISUAL'
+export EDITOR="$VISUAL"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 ZSH_THEME=''
