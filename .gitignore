@@ -1,6 +1,11 @@
 # Tmux plugins
 */.config/tmux/plugins/
 
+# OpenCode files rewritten by the app itself; service.json holds a local
+# service password and must never be committed. Keep them per-machine.
+common/.config/opencode/cli.json
+common/.config/opencode/service.json
+
 # Nvim
 lazy-lock.json
 

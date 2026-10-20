@@ -1,17 +1,18 @@
 {
-	"plugin": [
-		"oh-my-openagent@latest",
-		"opencode-websearch-cited@latest"
-	],
 	"$schema": "https://opencode.ai/config.json",
+	"plugins": [
+		"oh-my-openagent@latest"
+	],
 	"mcp": {
-		"chrome-devtools": {
-			"type": "local",
-			"command": [
-				"npx",
-				"-y",
-				"chrome-devtools-mcp@latest"
-			]
+		"servers": {
+			"chrome-devtools": {
+				"type": "local",
+				"command": [
+					"npx",
+					"-y",
+					"chrome-devtools-mcp@latest"
+				]
+			}
 		}
 	}
 }
